@@ -1,10 +1,12 @@
 import React from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch, useParams } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 
-import { Home } from "./views/home";
+import { Home } from "./views/Home.jsx";
 import { Demo } from "./views/demo";
 import { Single } from "./views/single";
+import { Section } from "./views/Section.jsx";
+import { Detail } from "./views/Detail.jsx";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
@@ -25,11 +27,11 @@ const Layout = () => {
 						<Route exact path="/">
 							<Home />
 						</Route>
-						<Route exact path="/demo">
-							<Demo />
+						<Route exact path="/:section">
+							<Section />
 						</Route>
-						<Route exact path="/single/:theid">
-							<Single />
+						<Route exact path="/:section/:id">
+							<Detail />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>
