@@ -19,7 +19,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			starships: [],
 			vehicles: [],
 			planets: [],
-			favorites: []
+			favorites: [],
 
 		},
 		actions: {
@@ -66,9 +66,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 					const newTarget = target;
 					const response = await fetch(`${baseURL}${newTarget}/${id}`); 
 			
-					const {result} = await response.json();
-						console.log(result);
-						return result;
+					const resp = await response.json();
+						console.log(resp['result']['properties']);
+						return resp['result']['properties'];
 				}
 				catch (error) {
 					console.error("GET error: ", error);
